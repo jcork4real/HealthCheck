@@ -33,7 +33,8 @@ app.UseAuthorization();
 //The api/health parameters passed to UseHealthChecks middleware
 //Will Create a server-side route for the health checks.
 //Added middleweare before MarpControllers to avoid being overidden.
-app.UseHealthChecks(new PathString("/api/health"));
+app.UseHealthChecks(new PathString("/api/health"),
+    new CustomHealthCheckOptions());
 
 app.MapControllers();
 
